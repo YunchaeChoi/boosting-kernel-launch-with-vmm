@@ -16,6 +16,7 @@ pthread_create(&tid[0], NULL, free_in_thread, (void*)A_gpu);
 kernel2<<< >>>();
 pthread_create(&tid[1], NULL, free_in_thread, (void*)B_gpu);
 kernel3<<< >>>();
+<img width="783" alt="multi_stream_rt" src="https://user-images.githubusercontent.com/90437552/211803657-a96f4fdf-152e-4a8c-b0e7-58bec2fa01fa.PNG">
 
 kernel2는 곧바로 launch될 수 있다. 하지만 kernel3는 앞선 tid 0의 thread가 완료될 때까지 kernel3가 launch되지 않는다.
 
@@ -29,3 +30,4 @@ pthread_create(&tid[0], NULL, free_in_thread, (void*)A_gpu);
 kernel2<<< >>>();
 pthread_create(&tid[1], NULL, free_in_thread, (void*)B_gpu);
 kernel3<<< >>>();
+<img width="525" alt="multi_stream_vmm" src="https://user-images.githubusercontent.com/90437552/211803641-92cf4cee-26ad-42c9-88af-7e54dbef5508.PNG">
