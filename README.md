@@ -1,5 +1,9 @@
 # boosting-kernel-launch-with-vmm
 
+multi_stream_fixed_low_level_3mm.cu
+vs.
+multi_stream_rt_3mm.cu
+
 ### 문제상황
 cudaFree(d_A);
 kernel<<< >> ();
@@ -30,4 +34,6 @@ pthread_create(&tid[0], NULL, free_in_thread, (void*)A_gpu);
 kernel2<<< >>>();
 pthread_create(&tid[1], NULL, free_in_thread, (void*)B_gpu);
 kernel3<<< >>>();
+
+
 <img width="525" alt="multi_stream_vmm" src="https://user-images.githubusercontent.com/90437552/211803641-92cf4cee-26ad-42c9-88af-7e54dbef5508.PNG">
